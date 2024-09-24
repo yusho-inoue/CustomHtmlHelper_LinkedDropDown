@@ -1,0 +1,18 @@
+﻿@using LinkedDropdownExample.Extensions;
+@model LinkedDropdownExample.Models.ExampleViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form>
+        <div>
+            <label>地域：</label>
+            @Html.DropDownListFor(e => e.RegionValue, Model.RegionListItems, "選択してください")
+        </div>
+        <div style="margin-top: 1rem;">
+            <label>国名：</label>
+            @Html.LinkedDropDownListFor(e => e.CountryValue, Model.CountryListItems, m => m.RegionValue)
+        </div>
+    </form>
+</div>
